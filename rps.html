@@ -1,0 +1,73 @@
+<script>
+	function computerPlay(){
+		let moves=["rock","paper","scissors"]
+		let i = Math.floor(Math.random()*3)
+		return moves[i]
+	}
+	
+	let str=""
+			let P1_scr=0
+		let CPU_scr=0
+	
+	function games(P1_scr,CPU_scr){	
+		let c=0
+
+		while(c<5){	
+			const playerSelection=window.prompt()
+			const computerSelection=computerPlay()
+			console.log(playRound(playerSelection,computerSelection))
+			c++
+		}
+		if(P1_scr>CPU_scr){
+					result="You win the game series"
+				}
+				if(P1_scr<=CPU_scr){
+					result="You lose the game series"
+				}
+				if(P1_scr==CPU_scr){
+					result="It was nice play we draw"
+				}
+				return result
+		}
+		console.log(games());
+
+	function playRound(playerSelection,computerSelection){
+		if(playerSelection==computerSelection){
+			str="Both have done the same!";
+		}
+		else if(playerSelection=="rock"){
+			if(computerSelection=="scissors"){
+				str="You win!, rock beats scissors";
+				P1_scr++;
+			}
+			else  if(computerSelection=="paper"){
+				str="You lose!, paper beats rock";
+				CPU_scr++;
+			}
+		}
+		else if(playerSelection=="paper"){
+			if(computerSelection=="scissors"){
+				str="You lose!, scissors beats paper";
+				CPU_scr++;
+			}
+			else if(computerSelection=="rock"){
+				str="You win!, paper beats rock";
+				P1_scr++;
+			}
+
+		}
+		else if(playerSelection=="scissors"){
+			if(computerSelection=="rock"){
+				str="You lose!, rock beats scissors";
+				CPU_scr++;
+			}
+			else if(computerSelection=="paper"){
+				str="You win!, scissors beats paper";
+				P1_scr++;
+			}
+		}
+		return str
+}
+
+</script>
+
